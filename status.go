@@ -1,7 +1,5 @@
 package ftp
 
-import "fmt"
-
 // FTP status codes, defined in RFC 959
 const (
 	StatusInitiating    = 100
@@ -110,10 +108,4 @@ var statusText = map[int]string{
 }
 
 // StatusText returns a text for the FTP status code. It returns the empty string if the code is unknown.
-func StatusText(code int) string {
-	str, ok := statusText[code]
-	if !ok {
-		str = fmt.Sprintf("Unknown status code: %d", code)
-	}
-	return str
-}
+func StatusText(code int) string { _ = "STUB: not implemented"; return "" }

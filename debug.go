@@ -9,16 +9,11 @@ type debugWrapper struct {
 }
 
 func newDebugWrapper(conn io.ReadWriteCloser, w io.Writer) io.ReadWriteCloser {
-	return &debugWrapper{
-		Reader: io.TeeReader(conn, w),
-		Writer: io.MultiWriter(w, conn),
-		conn:   conn,
-	}
+	_ = "STUB: not implemented"
+	return *new(io.ReadWriteCloser)
 }
 
-func (w *debugWrapper) Close() error {
-	return w.conn.Close()
-}
+func (w *debugWrapper) Close() error { _ = "STUB: not implemented"; return nil }
 
 type streamDebugWrapper struct {
 	io.Reader
@@ -26,12 +21,8 @@ type streamDebugWrapper struct {
 }
 
 func newStreamDebugWrapper(rd io.ReadCloser, w io.Writer) io.ReadCloser {
-	return &streamDebugWrapper{
-		Reader: io.TeeReader(rd, w),
-		closer: rd,
-	}
+	_ = "STUB: not implemented"
+	return *new(io.ReadCloser)
 }
 
-func (w *streamDebugWrapper) Close() error {
-	return w.closer.Close()
-}
+func (w *streamDebugWrapper) Close() error { _ = "STUB: not implemented"; return nil }
